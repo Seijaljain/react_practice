@@ -5,11 +5,12 @@ import routes from './routes';
 import './styles/styles.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Router, browserHistory } from 'react-router';
-import App from './components/App';
 import configureStore from './store/configureStore';
+import {loadCourses} from './actions/courseActions';
 import {Provider} from 'react-redux'; 
 
 const store=configureStore();
+store.dispatch(loadCourses());
 
 ReactDOM.render(
     <Provider store={store}>
